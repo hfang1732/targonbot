@@ -51,6 +51,8 @@ import {
 	doubaoModels,
 	doubaoDefaultModelId,
 	liteLlmModelInfoSaneDefaults,
+	targonModels,
+	targonDefaultModelId,
 } from "@shared/api"
 import { ExtensionMessage } from "@shared/ExtensionMessage"
 import { useExtensionState } from "@/context/ExtensionStateContext"
@@ -1592,6 +1594,25 @@ const ApiOptions = ({
 							</VSCodeLink>
 						)}
 					</p>
+
+					{showModelOptions && (
+						<>
+							<DropdownContainer zIndex={DROPDOWN_Z_INDEX - 2} className="dropdown-container">
+								<label htmlFor="model-id">
+									<span style={{ fontWeight: 500 }}>Model</span>
+								</label>
+								{createDropdown(targonModels)}
+							</DropdownContainer>
+
+							<ModelInfoView
+								selectedModelId={selectedModelId}
+								modelInfo={selectedModelInfo}
+								isDescriptionExpanded={isDescriptionExpanded}
+								setIsDescriptionExpanded={setIsDescriptionExpanded}
+								isPopup={isPopup}
+							/>
+						</>
+					)}
 				</div>
 			)}
 
@@ -1665,6 +1686,7 @@ const ApiOptions = ({
 				selectedProvider !== "vscode-lm" &&
 				selectedProvider !== "litellm" &&
 				selectedProvider !== "requesty" &&
+				selectedProvider !== "targon" &&
 				showModelOptions && (
 					<>
 						<DropdownContainer zIndex={DROPDOWN_Z_INDEX - 2} className="dropdown-container">
@@ -2088,6 +2110,8 @@ export function normalizeApiConfiguration(apiConfiguration?: ApiConfiguration): 
 			return getProviderData(xaiModels, xaiDefaultModelId)
 		case "sambanova":
 			return getProviderData(sambanovaModels, sambanovaDefaultModelId)
+		case "targon":
+			return getProviderData(targonModels, targonDefaultModelId)
 		default:
 			return getProviderData(anthropicModels, anthropicDefaultModelId)
 	}

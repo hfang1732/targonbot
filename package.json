@@ -1,6 +1,6 @@
 {
 	"name": "claude-dev",
-	"displayName": "Cline",
+	"displayName": "TargonBot",
 	"description": "Autonomous coding agent right in your IDE, capable of creating/editing files, running commands, using the browser, and more with your permission every step of the way.",
 	"version": "3.13.3",
 	"icon": "assets/icons/icon.png",
@@ -8,7 +8,7 @@
 		"vscode": "^1.84.0"
 	},
 	"author": {
-		"name": "Cline Bot Inc."
+		"name": "TargonBot"
 	},
 	"license": "Apache-2.0",
 	"publisher": "saoudrizwan",
@@ -48,7 +48,7 @@
 			"activitybar": [
 				{
 					"id": "claude-dev-ActivityBar",
-					"title": "Cline",
+					"title": "TargonBot",
 					"icon": "assets/icons/icon.svg"
 				}
 			]
@@ -106,12 +106,12 @@
 			},
 			{
 				"command": "cline.addToChat",
-				"title": "Add to Cline",
+				"title": "Add to TargonBot",
 				"category": "Cline"
 			},
 			{
 				"command": "cline.addTerminalOutputToChat",
-				"title": "Add to Cline",
+				"title": "Add to TargonBot",
 				"category": "Cline"
 			},
 			{
