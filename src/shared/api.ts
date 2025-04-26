@@ -22,6 +22,7 @@ export type ApiProvider =
 	| "asksage"
 	| "xai"
 	| "sambanova"
+	| "targon"
 
 export interface ApiHandlerOptions {
 	apiModelId?: string
@@ -80,6 +81,7 @@ export interface ApiHandlerOptions {
 	thinkingBudgetTokens?: number
 	reasoningEffort?: string
 	sambanovaApiKey?: string
+	targonApiKey?: string
 }
 
 export type ApiConfiguration = ApiHandlerOptions & {
@@ -1649,3 +1651,30 @@ export const requestyDefaultModelInfo: ModelInfo = {
 	cacheReadsPrice: 0.3,
 	description: "Anthropic's most intelligent model. Highest level of intelligence and capability.",
 }
+
+// Targon
+// https://api.targon.com/v1
+export type TargonModelId = keyof typeof targonModels
+export const targonDefaultModelId: TargonModelId = "deepseek-ai/DeepSeek-V3"
+export const targonModels = {
+	"deepseek-ai/DeepSeek-R1": {
+		maxTokens: 8_000,
+		contextWindow: 64_000,
+		supportsImages: false,
+		supportsPromptCache: true,
+		inputPrice: 0,
+		outputPrice: 2.19,
+		cacheWritesPrice: 0.55,
+		cacheReadsPrice: 0.14,
+	},
+	"deepseek-ai/DeepSeek-V3": {
+		maxTokens: 8_000,
+		contextWindow: 64_000,
+		supportsImages: false,
+		supportsPromptCache: true,
+		inputPrice: 0,
+		outputPrice: 0.28,
+		cacheWritesPrice: 0.14,
+		cacheReadsPrice: 0.014,
+	},
+} as const satisfies Record<string, ModelInfo>
