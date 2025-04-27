@@ -88,7 +88,7 @@ export class TargonHandler implements ApiHandler {
 							: "[non-string content]",
 				})),
 				stream: true,
-				temperature: 0.7,
+				temperature: 0,
 				max_tokens: model.info.maxTokens || 4096,
 			})
 
@@ -98,7 +98,7 @@ export class TargonHandler implements ApiHandler {
 				model: model.id,
 				messages: openAiMessages,
 				stream: true,
-				temperature: 0.7,
+				temperature: 0,
 				max_tokens: model.info.maxTokens || 4096,
 				// Only include tools if needed to avoid potential 503 errors
 				...(messages.some(
