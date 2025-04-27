@@ -446,7 +446,8 @@ const AutoApproveMenu = ({ style }: AutoApproveMenuProps) => {
 							fontSize: "12px",
 							marginBottom: "10px",
 						}}>
-						Cline will automatically make this many API requests before asking for approval to proceed with the task.
+						TargonBot will automatically make this many API requests before asking for approval to proceed with the
+						task.
 					</div>
 					<div style={{ margin: "6px 0" }}>
 						<VSCodeCheckbox
@@ -463,7 +464,7 @@ const AutoApproveMenu = ({ style }: AutoApproveMenuProps) => {
 								color: getAsVar(VSC_DESCRIPTION_FOREGROUND),
 								fontSize: "12px",
 							}}>
-							Receive system notifications when Cline requires approval to proceed or when a task is completed.
+							Receive system notifications when TargonBot requires approval to proceed or when a task is completed.
 						</div>
 					</div>
 				</div>
