@@ -333,8 +333,8 @@ const AutoApproveMenu = ({ style }: AutoApproveMenuProps) => {
 							color: getAsVar(VSC_DESCRIPTION_FOREGROUND),
 							fontSize: "12px",
 						}}>
-						Auto-approve allows Cline to perform the following actions without asking for permission. Please use with
-						caution and only enable if you understand the risks.
+						Auto-approve allows TargonBot to perform the following actions without asking for permission. Please use
+						with caution and only enable if you understand the risks.
 					</div>
 					{ACTION_METADATA.map((action) => {
 						// Handle readFilesExternally, editFilesExternally, and executeAllCommands as animated sub-options
