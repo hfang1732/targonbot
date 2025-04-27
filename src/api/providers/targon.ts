@@ -56,9 +56,12 @@ export class TargonHandler implements ApiHandler {
 		let tokensIn = 0
 		let tokensOut = 0
 
+		// Modify the system prompt to encourage concise responses
+		const conciseSystemPrompt = this.makePromptConcise(systemPrompt)
+
 		// Convert Anthropic messages to the format expected by Targon
 		const formattedMessages = [
-			{ role: "system", content: systemPrompt },
+			{ role: "system", content: conciseSystemPrompt },
 			...messages.map((msg) => ({
 				role: msg.role,
 				content: typeof msg.content === "string" ? msg.content : JSON.stringify(msg.content),
@@ -236,7 +239,7 @@ export class TargonHandler implements ApiHandler {
 						model: model.id,
 						messages: openAiMessages,
 						stream: true,
-						temperature: 0.7,
+						temperature: 0,
 						max_tokens: 1024, // Reduced max_tokens
 					})
 
@@ -314,5 +317,25 @@ export class TargonHandler implements ApiHandler {
 			console.error("Targon API error details:", error)
 			throw new Error(errorMessage)
 		}
+	}
+
+	/**
+	 * Modifies the system prompt to encourage more concise responses
+	 * @param systemPrompt The original system prompt
+	 * @returns A modified system prompt that encourages concise responses
+	 */
+	private makePromptConcise(systemPrompt: string): string {
+		// If the prompt already contains instructions about being concise, return it as is
+		if (
+			systemPrompt.toLowerCase().includes("concise") ||
+			systemPrompt.toLowerCase().includes("brief") ||
+			systemPrompt.toLowerCase().includes("short")
+		) {
+			return systemPrompt
+		}
+
+		console.log("hit make prompt concise")
+		// Add instructions to be concise
+		return `${systemPrompt}\n\nIMPORTANT: Be extremely concise. Provide only direct answers with no explanations, thinking, or reasoning. No "Let's tackle this" or "First, I need to" statements. Just give the final result or action.`
 	}
 }
