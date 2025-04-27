@@ -43,10 +43,10 @@ const Announcement = ({ version, hideAnnouncement }: AnnouncementProps) => {
 			</h3>
 			<ul style={ulStyle}>
 				<li>
-					<b>Global Cline Rules:</b> store multiple rules files in Documents/Cline/Rules to share between projects.
+					<b>Global TargonBot Rules:</b> store multiple rules files in Documents/TargonBot/Rules to share between projects.
 				</li>
 				<li>
-					<b>Cline Rules Popup:</b> New button in the chat area to view workspace and global cline rules files to plug
+					<b>TargonBot Rules Popup:</b> New button in the chat area to view workspace and global TargonBot rules files to plug
 					and play specific rules for the task
 				</li>
 				<li>
@@ -61,15 +61,15 @@ const Announcement = ({ version, hideAnnouncement }: AnnouncementProps) => {
 			<h4 style={{ margin: "5px 0 5px" }}>Previous Updates:</h4>
 			<ul style={ulStyle}>
 				<li>
-					<b>Model Favorites:</b> You can now mark your favorite models when using Cline & OpenRouter providers for
+					<b>Model Favorites:</b> You can now mark your favorite models when using TargonBot & OpenRouter providers for
 					quick access!
 				</li>
 				<li>
 					<b>Faster Diff Editing:</b> Improved animation performance for large files, plus a new indicator in chat
-					showing the number of edits Cline makes.
+					showing the number of edits TargonBot makes.
 				</li>
 				<li>
-					<b>New Auto-Approve Options:</b> Turn off Cline's ability to read and edit files outside your workspace.
+					<b>New Auto-Approve Options:</b> Turn off TargonBot's ability to read and edit files outside your workspace.
 				</li>
 			</ul>
 			{/*
@@ -130,10 +130,6 @@ const Announcement = ({ version, hideAnnouncement }: AnnouncementProps) => {
 				<VSCodeLink style={linkStyle} href="https://discord.gg/cline">
 					discord,
 				</VSCodeLink>{" "}
-				or{" "}
-				<VSCodeLink style={linkStyle} href="https://www.reddit.com/r/cline/">
-					r/cline
-				</VSCodeLink>
 				for more updates!
 			</p>
 		</div>

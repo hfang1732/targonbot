@@ -31,50 +31,50 @@ const ACTION_METADATA: {
 		id: "readFiles",
 		label: "Read project files",
 		shortName: "Read Local",
-		description: "Allows Cline to read files within your workspace.",
+		description: "Allows BitTargon to read files within your workspace.",
 	},
 	{
 		id: "readFilesExternally",
 		label: "Read all files",
 		shortName: "Read (all)",
-		description: "Allows Cline to read any file on your computer.",
+		description: "Allows BitTargon to read any file on your computer.",
 	},
 	{
 		id: "editFiles",
 		label: "Edit project files",
 		shortName: "Edit",
-		description: "Allows Cline to modify files within your workspace.",
+		description: "Allows BitTargon to modify files within your workspace.",
 	},
 	{
 		id: "editFilesExternally",
 		label: "Edit all files",
 		shortName: "Edit (all)",
-		description: "Allows Cline to modify any file on your computer.",
+		description: "Allows BitTargon to modify any file on your computer.",
 	},
 	{
 		id: "executeSafeCommands",
 		label: "Execute safe commands",
 		shortName: "Safe Commands",
 		description:
-			"Allows Cline to execute of safe terminal commands. If the model determines a command is potentially destructive, it will still require approval.",
+			"Allows BitTargon to execute of safe terminal commands. If the model determines a command is potentially destructive, it will still require approval.",
 	},
 	{
 		id: "executeAllCommands",
 		label: "Execute all commands",
 		shortName: "All Commands",
-		description: "Allows Cline to execute all terminal commands. Use at your own risk.",
+		description: "Allows BitTargon to execute all terminal commands. Use at your own risk.",
 	},
 	{
 		id: "useBrowser",
 		label: "Use the browser",
 		shortName: "Browser",
-		description: "Allows Cline to launch and interact with any website in a browser.",
+		description: "Allows BitTargon to launch and interact with any website in a browser.",
 	},
 	{
 		id: "useMcp",
 		label: "Use MCP servers",
 		shortName: "MCP",
-		description: "Allows Cline to use configured MCP servers which may modify filesystem or interact with APIs.",
+		description: "Allows BitTargon to use configured MCP servers which may modify filesystem or interact with APIs.",
 	},
 ]
 
