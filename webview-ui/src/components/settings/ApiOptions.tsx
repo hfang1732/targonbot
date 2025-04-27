@@ -86,6 +86,24 @@ export const DropdownContainer = styled.div<{ zIndex?: number }>`
 	}
 `
 
+// Styling for the static provider container and label
+export const StaticProviderContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+`
+
+export const StaticProviderLabel = styled.div`
+	padding: 5px 10px;
+	border: 1px solid var(--vscode-dropdown-border);
+	border-radius: 2px;
+	background: var(--vscode-dropdown-background);
+	color: var(--vscode-dropdown-foreground);
+	font-family: var(--vscode-font-family);
+	font-size: var(--vscode-font-size);
+	line-height: 1.4;
+`
+
 declare module "vscode" {
 	interface LanguageModelChatSelector {
 		vendor?: string
@@ -143,6 +161,16 @@ const ApiOptions = ({
 	const { selectedProvider, selectedModelId, selectedModelInfo } = useMemo(() => {
 		return normalizeApiConfiguration(apiConfiguration)
 	}, [apiConfiguration])
+
+	// Set targon as default API provider on component mount
+	useEffect(() => {
+		if (apiConfiguration?.apiProvider !== "targon") {
+			setApiConfiguration({
+				...apiConfiguration,
+				apiProvider: "targon" as ApiProvider,
+			})
+		}
+	}, [])
 
 	// Poll ollama/lmstudio models
 	const requestLocalModels = useCallback(() => {
@@ -216,42 +244,12 @@ const ApiOptions = ({
 
 	return (
 		<div style={{ display: "flex", flexDirection: "column", gap: 5, marginBottom: isPopup ? -10 : 0 }}>
-			<DropdownContainer className="dropdown-container">
+			<StaticProviderContainer>
 				<label htmlFor="api-provider">
 					<span style={{ fontWeight: 500 }}>API Provider</span>
 				</label>
-				<VSCodeDropdown
-					id="api-provider"
-					value={selectedProvider}
-					onChange={handleInputChange("apiProvider")}
-					style={{
-						minWidth: 130,
-						position: "relative",
-					}}>
-					<VSCodeOption value="cline">Cline</VSCodeOption>
-					<VSCodeOption value="openrouter">OpenRouter</VSCodeOption>
-					<VSCodeOption value="anthropic">Anthropic</VSCodeOption>
-					<VSCodeOption value="bedrock">Amazon Bedrock</VSCodeOption>
-					<VSCodeOption value="openai">OpenAI Compatible</VSCodeOption>
-					<VSCodeOption value="vertex">GCP Vertex AI</VSCodeOption>
-					<VSCodeOption value="gemini">Google Gemini</VSCodeOption>
-					<VSCodeOption value="deepseek">DeepSeek</VSCodeOption>
-					<VSCodeOption value="mistral">Mistral</VSCodeOption>
-					<VSCodeOption value="openai-native">OpenAI</VSCodeOption>
-					<VSCodeOption value="vscode-lm">VS Code LM API</VSCodeOption>
-					<VSCodeOption value="requesty">Requesty</VSCodeOption>
-					<VSCodeOption value="together">Together</VSCodeOption>
-					<VSCodeOption value="qwen">Alibaba Qwen</VSCodeOption>
-					<VSCodeOption value="doubao">Bytedance Doubao</VSCodeOption>
-					<VSCodeOption value="lmstudio">LM Studio</VSCodeOption>
-					<VSCodeOption value="ollama">Ollama</VSCodeOption>
-					<VSCodeOption value="litellm">LiteLLM</VSCodeOption>
-					<VSCodeOption value="asksage">AskSage</VSCodeOption>
-					<VSCodeOption value="xai">xAI</VSCodeOption>
-					<VSCodeOption value="sambanova">SambaNova</VSCodeOption>
-					<VSCodeOption value="targon">Targon</VSCodeOption>
-				</VSCodeDropdown>
-			</DropdownContainer>
+				<StaticProviderLabel>Targon</StaticProviderLabel>
+			</StaticProviderContainer>
 
 			{selectedProvider === "cline" && (
 				<div style={{ marginBottom: 14, marginTop: 4 }}>
