@@ -43,11 +43,12 @@ const Announcement = ({ version, hideAnnouncement }: AnnouncementProps) => {
 			</h3>
 			<ul style={ulStyle}>
 				<li>
-					<b>Global TargonBot Rules:</b> store multiple rules files in Documents/TargonBot/Rules to share between projects.
+					<b>Global TargonBot Rules:</b> store multiple rules files in Documents/TargonBot/Rules to share between
+					projects.
 				</li>
 				<li>
-					<b>TargonBot Rules Popup:</b> New button in the chat area to view workspace and global TargonBot rules files to plug
-					and play specific rules for the task
+					<b>TargonBot Rules Popup:</b> New button in the chat area to view workspace and global TargonBot rules files
+					to plug and play specific rules for the task
 				</li>
 				<li>
 					<b>Slash Commands:</b> Type <code>/</code> in chat to see the list of quick actions, like starting a new task
